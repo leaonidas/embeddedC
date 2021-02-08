@@ -1,0 +1,13 @@
+CONTIKI_PROJECT = sensor_node cluster_heads datacenter
+CONTIKI_TARGET_SOURCEFILES += sensor_node.c cluster_heads.c datacenter.c
+all: $(CONTIKI_PROJECT)
+APPS=servreg-hack
+CONTIKI = ../..
+
+WITH_UIP6=1
+UIP_CONF_IPV6=1
+CFLAGS+=-DUIP_CONF_IPV6
+CFLAGS+=-DUIP_CONF_IPV6_RPL
+
+
+include $(CONTIKI)/Makefile.include
